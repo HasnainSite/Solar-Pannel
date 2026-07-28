@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Menu, X, Phone, ShieldCheck, ChevronRight, Calculator } from 'lucide-react';
+import { Sun, Moon, Menu, X, Phone, ShieldCheck, ChevronRight, Calculator, Home, Info, Wrench, Package, Zap, FolderCheck, HelpCircle, BookOpen, Mail } from 'lucide-react';
 
 interface HeaderProps {
   darkMode: boolean;
@@ -34,16 +34,16 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
   }, []);
 
   const navLinks = [
-    { label: 'Home', href: '#home', id: 'home' },
-    { label: 'Calculator', href: '#calculator', id: 'calculator' },
-    { label: 'About Us', href: '#about', id: 'about' },
-    { label: 'Services', href: '#services', id: 'services' },
-    { label: 'Products', href: '#products', id: 'products' },
-    { label: 'Net Metering', href: '#net-metering', id: 'net-metering' },
-    { label: 'Projects', href: '#projects', id: 'projects' },
-    { label: 'FAQs', href: '#faqs', id: 'faqs' },
-    { label: 'Blog', href: '#blog', id: 'blog' },
-    { label: 'Contact', href: '#contact', id: 'contact' },
+    { label: 'Home', href: '#home', id: 'home', icon: Home },
+    { label: 'Calculator', href: '#calculator', id: 'calculator', icon: Calculator },
+    { label: 'About', href: '#about', id: 'about', icon: Info },
+    { label: 'Services', href: '#services', id: 'services', icon: Wrench },
+    { label: 'Products', href: '#products', id: 'products', icon: Package },
+    { label: 'Net Metering', href: '#net-metering', id: 'net-metering', icon: Zap },
+    { label: 'Projects', href: '#projects', id: 'projects', icon: FolderCheck },
+    { label: 'FAQs', href: '#faqs', id: 'faqs', icon: HelpCircle },
+    { label: 'Blog', href: '#blog', id: 'blog', icon: BookOpen },
+    { label: 'Contact', href: '#contact', id: 'contact', icon: Mail },
   ];
 
   return (
@@ -52,66 +52,69 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? darkMode
-            ? 'bg-slate-900/90 backdrop-blur-md border-b border-slate-800 shadow-xl'
-            : 'bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-md'
+            ? 'bg-slate-900/95 backdrop-blur-md border-b border-slate-800 shadow-xl'
+            : 'bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md'
           : darkMode
-          ? 'bg-slate-950/80 backdrop-blur-sm border-b border-slate-800/50'
-          : 'bg-slate-50/80 backdrop-blur-sm border-b border-slate-200/50'
+          ? 'bg-slate-950/90 backdrop-blur-sm border-b border-slate-800/50'
+          : 'bg-slate-50/90 backdrop-blur-sm border-b border-slate-200/50'
       }`}
     >
-      {/* Top Banner Info Bar */}
-      <div className={`hidden md:flex justify-between items-center text-xs px-6 py-1.5 border-b ${
-        darkMode ? 'bg-slate-950/90 border-slate-800 text-slate-400' : 'bg-slate-100/90 border-slate-200 text-slate-600'
+      {/* Top Banner Info Bar - Desktop Only */}
+      <div className={`hidden xl:flex justify-between items-center text-xs px-6 py-1.5 border-b ${
+        darkMode ? 'bg-slate-950 border-slate-800/80 text-slate-400' : 'bg-slate-100 border-slate-200/80 text-slate-600'
       }`}>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 whitespace-nowrap">
           <span className="flex items-center gap-1.5 text-[#2E8B57] font-semibold">
-            <ShieldCheck className="w-3.5 h-3.5" />
+            <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
             Licensed & NABCEP Certified Engineers
           </span>
-          <span>📍 100 Clean Energy Blvd, San Jose, CA</span>
-          <span>⚡ 25-Year Power Guarantee</span>
+          <span className="text-slate-400 dark:text-slate-500">📍 100 Clean Energy Blvd, San Jose, CA</span>
+          <span className="text-amber-500 font-medium">⚡ 25-Year Power Guarantee</span>
         </div>
-        <div className="flex items-center gap-4">
-          <a href="tel:18005557652" className="flex items-center gap-1 hover:text-[#0A4D9B] font-semibold transition-colors">
-            <Phone className="w-3 h-3 text-[#0A4D9B]" />
+        <div className="flex items-center gap-4 whitespace-nowrap">
+          <a href="tel:18005557652" className="flex items-center gap-1.5 hover:text-[#0A4D9B] font-semibold transition-colors">
+            <Phone className="w-3.5 h-3.5 text-[#0A4D9B]" />
             +1 (800) 555-SOLAR
           </a>
-          <span className="opacity-40">|</span>
-          <span className="text-emerald-500 font-medium">● 24/7 Support Online</span>
+          <span className="opacity-30">|</span>
+          <span className="text-emerald-500 font-semibold flex items-center gap-1">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            24/7 Support Online
+          </span>
         </div>
       </div>
 
       {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand Logo */}
-        <a href="#home" className="flex items-center gap-2.5 group">
-          <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#0A4D9B] rounded-xl flex items-center justify-center shadow-lg shadow-blue-900/20 group-hover:scale-105 transition-transform">
-            <Sun className="w-6 h-6 text-[#FFC107] animate-pulse" />
+        <a href="#home" className="flex items-center gap-2 sm:gap-2.5 group flex-shrink-0">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 bg-[#0A4D9B] rounded-xl flex items-center justify-center shadow-md shadow-blue-900/20 group-hover:scale-105 transition-transform flex-shrink-0">
+            <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-[#FFC107] animate-pulse" />
           </div>
           <div className="flex flex-col">
-            <span className={`text-lg sm:text-xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-[#0A4D9B]'}`}>
+            <span className={`text-base sm:text-lg xl:text-xl font-black tracking-tight whitespace-nowrap ${darkMode ? 'text-white' : 'text-[#0A4D9B]'}`}>
               SOLARTECH <span className="text-[#2E8B57]">ENERGY</span>
             </span>
-            <span className="text-[10px] uppercase font-bold tracking-widest text-slate-500 -mt-1">
+            <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-slate-500 -mt-1 whitespace-nowrap hidden sm:inline">
               Clean Solar Solutions
             </span>
           </div>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+        {/* Desktop Navigation Links - Shown on XL screens */}
+        <nav className="hidden xl:flex items-center gap-1 2xl:gap-1.5">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
               <a
                 key={link.id}
                 href={link.href}
-                className={`px-3 py-1.5 text-xs xl:text-sm font-semibold rounded-lg transition-all ${
+                className={`px-2.5 py-1.5 text-xs 2xl:text-sm font-bold rounded-lg transition-all whitespace-nowrap ${
                   isActive
                     ? 'bg-[#0A4D9B] text-white shadow-md shadow-blue-900/20'
                     : darkMode
                     ? 'text-slate-300 hover:text-white hover:bg-slate-800'
-                    : 'text-slate-600 hover:text-[#0A4D9B] hover:bg-slate-100'
+                    : 'text-slate-700 hover:text-[#0A4D9B] hover:bg-slate-100'
                 }`}
               >
                 {link.label}
@@ -121,23 +124,23 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
         </nav>
 
         {/* Right CTA Actions */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          {/* Quick Calculator Trigger Link */}
+        <div className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
+          {/* Quick Calculator Shortcut */}
           <a
             href="#calculator"
-            className={`hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-colors ${
-              darkMode ? 'bg-slate-800 text-amber-400 hover:bg-slate-700' : 'bg-amber-50 text-[#0A4D9B] border border-amber-200 hover:bg-amber-100'
+            className={`hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-colors flex-shrink-0 ${
+              darkMode ? 'bg-slate-800 text-amber-400 hover:bg-slate-700 border border-slate-700' : 'bg-amber-50 text-[#0A4D9B] border border-amber-200/80 hover:bg-amber-100'
             }`}
           >
-            <Calculator className="w-4 h-4 text-amber-500" />
-            <span>ROI Calculator</span>
+            <Calculator className="w-4 h-4 text-amber-500 flex-shrink-0" />
+            <span className="hidden md:inline">ROI Calculator</span>
           </a>
 
           {/* Theme Toggle Button */}
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className={`p-2 sm:p-2.5 rounded-xl transition-colors ${
-              darkMode ? 'bg-slate-800 text-amber-400 hover:bg-slate-700' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+            className={`p-2 sm:p-2.5 rounded-xl transition-colors flex-shrink-0 ${
+              darkMode ? 'bg-slate-800 text-amber-400 hover:bg-slate-700 border border-slate-700' : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200'
             }`}
             aria-label="Toggle Dark/Light Mode"
             title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
@@ -148,71 +151,84 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
           {/* Get Free Quote CTA */}
           <button
             onClick={onOpenQuoteModal}
-            className="hidden md:inline-flex items-center gap-2 bg-[#0A4D9B] hover:bg-[#083a75] text-white px-4 py-2.5 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold shadow-lg shadow-blue-900/20 transition-all hover:scale-[1.02] active:scale-95"
+            className="bg-[#0A4D9B] hover:bg-[#083a75] text-white px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-blue-900/20 transition-all hover:scale-[1.02] active:scale-95 whitespace-nowrap flex items-center gap-1.5 flex-shrink-0"
           >
             <span>Get Free Quote</span>
-            <ChevronRight className="w-4 h-4 text-[#FFC107]" />
+            <ChevronRight className="w-4 h-4 text-[#FFC107] flex-shrink-0" />
           </button>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile/Tablet Hamburger Toggle (Shown on screens smaller than XL) */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`lg:hidden p-2 rounded-xl transition-colors ${
-              darkMode ? 'bg-slate-800 text-white' : 'bg-slate-100 text-slate-800'
+            className={`xl:hidden p-2 sm:p-2.5 rounded-xl transition-colors flex-shrink-0 border ${
+              darkMode ? 'bg-slate-800 border-slate-700 text-white hover:bg-slate-700' : 'bg-slate-100 border-slate-200 text-slate-800 hover:bg-slate-200'
             }`}
-            aria-label="Toggle Mobile Menu"
+            aria-label="Toggle Navigation Menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Navigation Menu */}
       {mobileMenuOpen && (
-        <div className={`lg:hidden border-b px-4 py-6 space-y-3 ${
-          darkMode ? 'bg-slate-900 border-slate-800 text-white' : 'bg-white border-slate-200 text-slate-800'
+        <div className={`xl:hidden border-b shadow-2xl transition-all animate-fadeIn max-h-[85vh] overflow-y-auto ${
+          darkMode ? 'bg-slate-900 border-slate-800 text-white' : 'bg-white border-slate-200 text-slate-900'
         }`}>
-          <div className="grid grid-cols-2 gap-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.id}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`px-3 py-2.5 rounded-xl text-sm font-semibold flex items-center justify-between ${
-                  activeSection === link.id
-                    ? 'bg-[#0A4D9B] text-white'
-                    : darkMode
-                    ? 'bg-slate-800 text-slate-200'
-                    : 'bg-slate-100 text-slate-700'
-                }`}
-              >
-                <span>{link.label}</span>
-                <ChevronRight className="w-4 h-4 opacity-50" />
-              </a>
-            ))}
-          </div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b dark:border-slate-800 border-slate-100 text-xs text-slate-500 font-bold uppercase tracking-wider">
+              <span>Navigation Menu</span>
+              <span className="text-[#2E8B57]">● 24/7 Solar Support</span>
+            </div>
 
-          <div className="pt-4 border-t border-slate-800/20 space-y-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenQuoteModal();
-              }}
-              className="w-full bg-[#0A4D9B] hover:bg-[#083a75] text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-blue-900/20"
-            >
-              <span>Get Free Solar Quote</span>
-              <ChevronRight className="w-4 h-4 text-[#FFC107]" />
-            </button>
-            <a
-              href="tel:18005557652"
-              className="w-full border-2 border-[#2E8B57] text-[#2E8B57] py-2.5 rounded-xl font-bold flex items-center justify-center gap-2 text-sm"
-            >
-              <Phone className="w-4 h-4" />
-              <span>Call Us: +1 (800) 555-SOLAR</span>
-            </a>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {navLinks.map((link) => {
+                const IconComponent = link.icon;
+                const isActive = activeSection === link.id;
+                return (
+                  <a
+                    key={link.id}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`px-3 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2.5 transition-colors ${
+                      isActive
+                        ? 'bg-[#0A4D9B] text-white shadow-md'
+                        : darkMode
+                        ? 'bg-slate-800/80 hover:bg-slate-800 text-slate-200'
+                        : 'bg-slate-100 hover:bg-slate-200 text-slate-800'
+                    }`}
+                  >
+                    <IconComponent className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-[#FFC107]' : 'text-[#0A4D9B]'}`} />
+                    <span className="truncate">{link.label}</span>
+                  </a>
+                );
+              })}
+            </div>
+
+            <div className="pt-3 border-t dark:border-slate-800 border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenQuoteModal();
+                }}
+                className="w-full bg-[#0A4D9B] hover:bg-[#083a75] text-white py-3 px-4 rounded-xl font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg"
+              >
+                <span>Get Free Solar Quote</span>
+                <ChevronRight className="w-4 h-4 text-[#FFC107]" />
+              </button>
+
+              <a
+                href="tel:18005557652"
+                className="w-full border-2 border-[#2E8B57] text-[#2E8B57] hover:bg-[#2E8B57]/10 py-2.5 px-4 rounded-xl font-bold flex items-center justify-center gap-2 text-xs sm:text-sm transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                <span>Call Us: +1 (800) 555-SOLAR</span>
+              </a>
+            </div>
           </div>
         </div>
       )}
     </header>
   );
 };
+
