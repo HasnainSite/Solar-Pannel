@@ -5,6 +5,8 @@ import { SolarCalculator } from './components/Calculator';
 import { AboutUs } from './components/AboutUs';
 import { Services } from './components/Services';
 import { Products } from './components/Products';
+import { ProductsPage } from './components/ProductsPage';
+import { Dashboard } from './components/Dashboard';
 import { NetMetering } from './components/NetMetering';
 import { Process } from './components/Process';
 import { Projects } from './components/Projects';
@@ -24,6 +26,7 @@ import { TermsModal } from './components/TermsModal';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [currentView, setCurrentView] = useState<'home' | 'dashboard' | 'products'>('home');
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [quotePrefilledDetails, setQuotePrefilledDetails] = useState('');
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
@@ -42,6 +45,8 @@ export default function App() {
       <Header
         darkMode={darkMode}
         setDarkMode={setDarkMode}
+        currentView={currentView}
+        onViewChange={setCurrentView}
         onOpenQuoteModal={() => {
           setQuotePrefilledDetails('');
           setQuoteModalOpen(true);
@@ -50,91 +55,110 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="space-y-4">
-        {/* Hero Section */}
-        <Hero
-          darkMode={darkMode}
-          onOpenQuoteModal={() => {
-            setQuotePrefilledDetails('');
-            setQuoteModalOpen(true);
-          }}
-        />
+        {currentView === 'dashboard' && (
+          <Dashboard
+            darkMode={darkMode}
+            onNavigateToQuote={handleOpenQuoteWithDetails}
+          />
+        )}
 
-        {/* Interactive Solar ROI & Net Metering Calculator */}
-        <SolarCalculator
-          darkMode={darkMode}
-          onOpenQuoteWithDetails={handleOpenQuoteWithDetails}
-        />
+        {currentView === 'products' && (
+          <ProductsPage
+            darkMode={darkMode}
+            onOpenQuoteWithProduct={(productName) => handleOpenQuoteWithDetails(`Hardware Quote Request: ${productName}`)}
+          />
+        )}
 
-        {/* About Company */}
-        <AboutUs darkMode={darkMode} />
+        {currentView === 'home' && (
+          <>
+            {/* Hero Section */}
+            <Hero
+              darkMode={darkMode}
+              onOpenQuoteModal={() => {
+                setQuotePrefilledDetails('');
+                setQuoteModalOpen(true);
+              }}
+            />
 
-        {/* Our Services */}
-        <Services
-          darkMode={darkMode}
-          onOpenQuoteWithService={(serviceTitle) => handleOpenQuoteWithDetails(`Service Inquiry: ${serviceTitle}`)}
-        />
+            {/* Interactive Solar ROI & Net Metering Calculator */}
+            <SolarCalculator
+              darkMode={darkMode}
+              onOpenQuoteWithDetails={handleOpenQuoteWithDetails}
+            />
 
-        {/* Products Catalog */}
-        <Products
-          darkMode={darkMode}
-          onOpenQuoteWithProduct={(productName) => handleOpenQuoteWithDetails(`Hardware Quote Request: ${productName}`)}
-        />
+            {/* About Company */}
+            <AboutUs darkMode={darkMode} />
 
-        {/* Net Metering Interconnection Guide */}
-        <NetMetering
-          darkMode={darkMode}
-          onOpenQuoteModal={() => {
-            setQuotePrefilledDetails('Inquiry regarding Net Metering Interconnection Approval');
-            setQuoteModalOpen(true);
-          }}
-        />
+            {/* Our Services */}
+            <Services
+              darkMode={darkMode}
+              onOpenQuoteWithService={(serviceTitle) => handleOpenQuoteWithDetails(`Service Inquiry: ${serviceTitle}`)}
+            />
 
-        {/* Our 6-Step Installation Process */}
-        <Process
-          darkMode={darkMode}
-          onOpenQuoteModal={() => {
-            setQuotePrefilledDetails('');
-            setQuoteModalOpen(true);
-          }}
-        />
+            {/* Products Catalog Preview */}
+            <Products
+              darkMode={darkMode}
+              onOpenQuoteWithProduct={(productName) => handleOpenQuoteWithDetails(`Hardware Quote Request: ${productName}`)}
+              onViewAllProducts={() => setCurrentView('products')}
+            />
 
-        {/* Project Gallery */}
-        <Projects
-          darkMode={darkMode}
-          onOpenQuoteModal={() => {
-            setQuotePrefilledDetails('');
-            setQuoteModalOpen(true);
-          }}
-        />
+            {/* Net Metering Interconnection Guide */}
+            <NetMetering
+              darkMode={darkMode}
+              onOpenQuoteModal={() => {
+                setQuotePrefilledDetails('Inquiry regarding Net Metering Interconnection Approval');
+                setQuoteModalOpen(true);
+              }}
+            />
 
-        {/* Why Choose Us */}
-        <WhyChooseUs darkMode={darkMode} />
+            {/* Our 6-Step Installation Process */}
+            <Process
+              darkMode={darkMode}
+              onOpenQuoteModal={() => {
+                setQuotePrefilledDetails('');
+                setQuoteModalOpen(true);
+              }}
+            />
 
-        {/* Customer Testimonials */}
-        <Testimonials darkMode={darkMode} />
+            {/* Project Gallery */}
+            <Projects
+              darkMode={darkMode}
+              onOpenQuoteModal={() => {
+                setQuotePrefilledDetails('');
+                setQuoteModalOpen(true);
+              }}
+            />
 
-        {/* Partner Brands Ecosystem */}
-        <Brands darkMode={darkMode} />
+            {/* Why Choose Us */}
+            <WhyChooseUs darkMode={darkMode} />
 
-        {/* FAQ Accordion */}
-        <FaqSection darkMode={darkMode} />
+            {/* Customer Testimonials */}
+            <Testimonials darkMode={darkMode} />
 
-        {/* Blog & Solar News */}
-        <BlogSection darkMode={darkMode} />
+            {/* Partner Brands Ecosystem */}
+            <Brands darkMode={darkMode} />
 
-        {/* Call To Action Banner */}
-        <CtaBanner
-          onOpenQuoteModal={() => {
-            setQuotePrefilledDetails('');
-            setQuoteModalOpen(true);
-          }}
-        />
+            {/* FAQ Accordion */}
+            <FaqSection darkMode={darkMode} />
 
-        {/* Contact Form & Simulated Google Map */}
-        <Contact
-          darkMode={darkMode}
-          prefilledDetails={quotePrefilledDetails}
-        />
+            {/* Blog & Solar News */}
+            <BlogSection darkMode={darkMode} />
+
+            {/* Call To Action Banner */}
+            <CtaBanner
+              onOpenQuoteModal={() => {
+                setQuotePrefilledDetails('');
+                setQuoteModalOpen(true);
+              }}
+            />
+
+            {/* Contact Form & Simulated Google Map */}
+            <Contact
+              darkMode={darkMode}
+              prefilledDetails={quotePrefilledDetails}
+            />
+          </>
+        )}
       </main>
 
       {/* Footer */}

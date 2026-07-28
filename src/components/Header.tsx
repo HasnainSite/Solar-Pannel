@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Menu, X, Phone, ShieldCheck, ChevronRight, Calculator, Home, Info, Wrench, Package, Zap, FolderCheck, HelpCircle, BookOpen, Mail } from 'lucide-react';
+import { Sun, Moon, Menu, X, Phone, ShieldCheck, ChevronRight, Calculator, Home, Info, Wrench, Package, Zap, FolderCheck, HelpCircle, BookOpen, Mail, LayoutDashboard, Activity } from 'lucide-react';
 
 interface HeaderProps {
   darkMode: boolean;
   setDarkMode: (val: boolean) => void;
   onOpenQuoteModal: () => void;
+  currentView: 'home' | 'dashboard' | 'products';
+  onViewChange: (view: 'home' | 'dashboard' | 'products') => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuoteModal }) => {
+export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuoteModal, currentView, onViewChange }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -33,17 +35,32 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (view: 'home' | 'dashboard' | 'products', href?: string) => {
+    onViewChange(view);
+    setMobileMenuOpen(false);
+    if (view === 'home' && href) {
+      setTimeout(() => {
+        const targetId = href.replace('#', '');
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
   const navLinks = [
-    { label: 'Home', href: '#home', id: 'home', icon: Home },
-    { label: 'Calculator', href: '#calculator', id: 'calculator', icon: Calculator },
-    { label: 'About', href: '#about', id: 'about', icon: Info },
-    { label: 'Services', href: '#services', id: 'services', icon: Wrench },
-    { label: 'Products', href: '#products', id: 'products', icon: Package },
-    { label: 'Net Metering', href: '#net-metering', id: 'net-metering', icon: Zap },
-    { label: 'Projects', href: '#projects', id: 'projects', icon: FolderCheck },
-    { label: 'FAQs', href: '#faqs', id: 'faqs', icon: HelpCircle },
-    { label: 'Blog', href: '#blog', id: 'blog', icon: BookOpen },
-    { label: 'Contact', href: '#contact', id: 'contact', icon: Mail },
+    { label: 'Home', view: 'home' as const, href: '#home', id: 'home', icon: Home },
+    { label: 'Calculator', view: 'home' as const, href: '#calculator', id: 'calculator', icon: Calculator },
+    { label: 'About', view: 'home' as const, href: '#about', id: 'about', icon: Info },
+    { label: 'Services', view: 'home' as const, href: '#services', id: 'services', icon: Wrench },
+    { label: 'Products', view: 'products' as const, href: '#products', id: 'products', icon: Package },
+    { label: 'Dashboard', view: 'dashboard' as const, href: '#dashboard', id: 'dashboard', icon: LayoutDashboard },
+    { label: 'Net Metering', view: 'home' as const, href: '#net-metering', id: 'net-metering', icon: Zap },
+    { label: 'Projects', view: 'home' as const, href: '#projects', id: 'projects', icon: FolderCheck },
+    { label: 'FAQs', view: 'home' as const, href: '#faqs', id: 'faqs', icon: HelpCircle },
+    { label: 'Blog', view: 'home' as const, href: '#blog', id: 'blog', icon: BookOpen },
+    { label: 'Contact', view: 'home' as const, href: '#contact', id: 'contact', icon: Mail },
   ];
 
   return (
@@ -87,7 +104,7 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
       {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand Logo */}
-        <a href="#home" className="flex items-center gap-2 sm:gap-2.5 group flex-shrink-0">
+        <button onClick={() => handleNavClick('home', '#home')} className="flex items-center gap-2 sm:gap-2.5 group flex-shrink-0 text-left">
           <div className="w-9 h-9 sm:w-10 sm:h-10 bg-[#0A4D9B] rounded-xl flex items-center justify-center shadow-md shadow-blue-900/20 group-hover:scale-105 transition-transform flex-shrink-0">
             <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-[#FFC107] animate-pulse" />
           </div>
@@ -99,42 +116,63 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
               Clean Solar Solutions
             </span>
           </div>
-        </a>
+        </button>
 
         {/* Desktop Navigation Links - Shown on XL screens */}
         <nav className="hidden xl:flex items-center gap-1 2xl:gap-1.5">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.id;
+            const isSelectedView = currentView === link.view && (link.view !== 'home' || activeSection === link.id);
             return (
-              <a
+              <button
                 key={link.id}
-                href={link.href}
-                className={`px-2.5 py-1.5 text-xs 2xl:text-sm font-bold rounded-lg transition-all whitespace-nowrap ${
-                  isActive
+                onClick={() => handleNavClick(link.view, link.href)}
+                className={`px-2.5 py-1.5 text-xs 2xl:text-sm font-bold rounded-lg transition-all whitespace-nowrap flex items-center gap-1.5 ${
+                  isSelectedView
                     ? 'bg-[#0A4D9B] text-white shadow-md shadow-blue-900/20'
                     : darkMode
                     ? 'text-slate-300 hover:text-white hover:bg-slate-800'
                     : 'text-slate-700 hover:text-[#0A4D9B] hover:bg-slate-100'
                 }`}
               >
-                {link.label}
-              </a>
+                {link.view === 'dashboard' && <Activity className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />}
+                <span>{link.label}</span>
+              </button>
             );
           })}
         </nav>
 
         {/* Right CTA Actions */}
         <div className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
-          {/* Quick Calculator Shortcut */}
-          <a
-            href="#calculator"
-            className={`hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-colors flex-shrink-0 ${
-              darkMode ? 'bg-slate-800 text-amber-400 hover:bg-slate-700 border border-slate-700' : 'bg-amber-50 text-[#0A4D9B] border border-amber-200/80 hover:bg-amber-100'
+          {/* Quick Dashboard Shortcut Button */}
+          <button
+            onClick={() => onViewChange('dashboard')}
+            className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-black whitespace-nowrap transition-all shadow-sm flex-shrink-0 ${
+              currentView === 'dashboard'
+                ? 'bg-[#2E8B57] text-white shadow-emerald-900/20 ring-2 ring-emerald-400/50'
+                : darkMode
+                ? 'bg-slate-800 text-emerald-400 hover:bg-slate-700 border border-slate-700'
+                : 'bg-emerald-50 text-[#2E8B57] border border-emerald-200 hover:bg-emerald-100'
             }`}
           >
-            <Calculator className="w-4 h-4 text-amber-500 flex-shrink-0" />
-            <span className="hidden md:inline">ROI Calculator</span>
-          </a>
+            <LayoutDashboard className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+            <span className="hidden sm:inline">Dashboard</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          </button>
+
+          {/* Quick Products Catalog Button */}
+          <button
+            onClick={() => onViewChange('products')}
+            className={`hidden md:flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-black whitespace-nowrap transition-all flex-shrink-0 ${
+              currentView === 'products'
+                ? 'bg-[#0A4D9B] text-white shadow-md'
+                : darkMode
+                ? 'bg-slate-800 text-amber-400 hover:bg-slate-700 border border-slate-700'
+                : 'bg-amber-50 text-[#0A4D9B] border border-amber-200/80 hover:bg-amber-100'
+            }`}
+          >
+            <Package className="w-4 h-4 text-amber-500 flex-shrink-0" />
+            <span>Products</span>
+          </button>
 
           {/* Theme Toggle Button */}
           <button
@@ -184,23 +222,22 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {navLinks.map((link) => {
                 const IconComponent = link.icon;
-                const isActive = activeSection === link.id;
+                const isSelectedView = currentView === link.view && (link.view !== 'home' || activeSection === link.id);
                 return (
-                  <a
+                  <button
                     key={link.id}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`px-3 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2.5 transition-colors ${
-                      isActive
+                    onClick={() => handleNavClick(link.view, link.href)}
+                    className={`px-3 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2.5 transition-colors text-left ${
+                      isSelectedView
                         ? 'bg-[#0A4D9B] text-white shadow-md'
                         : darkMode
                         ? 'bg-slate-800/80 hover:bg-slate-800 text-slate-200'
                         : 'bg-slate-100 hover:bg-slate-200 text-slate-800'
                     }`}
                   >
-                    <IconComponent className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-[#FFC107]' : 'text-[#0A4D9B]'}`} />
+                    <IconComponent className={`w-4 h-4 flex-shrink-0 ${isSelectedView ? 'text-[#FFC107]' : 'text-[#0A4D9B]'}`} />
                     <span className="truncate">{link.label}</span>
-                  </a>
+                  </button>
                 );
               })}
             </div>

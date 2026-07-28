@@ -6,9 +6,10 @@ import { Search, Star, ShieldCheck, Filter, ArrowRight, X, Sparkles, Check, Chec
 interface ProductsProps {
   darkMode: boolean;
   onOpenQuoteWithProduct: (productName: string) => void;
+  onViewAllProducts?: () => void;
 }
 
-export const Products: React.FC<ProductsProps> = ({ darkMode, onOpenQuoteWithProduct }) => {
+export const Products: React.FC<ProductsProps> = ({ darkMode, onOpenQuoteWithProduct, onViewAllProducts }) => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
@@ -33,17 +34,29 @@ export const Products: React.FC<ProductsProps> = ({ darkMode, onOpenQuoteWithPro
   return (
     <section id="products" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Title */}
-      <div className="text-center max-w-3xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 bg-amber-500/10 text-amber-600 dark:text-amber-400 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+      <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
+        <div className="inline-flex items-center gap-2 bg-amber-500/10 text-amber-600 dark:text-amber-400 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
           <Sparkles className="w-4 h-4 text-[#FFC107]" />
           <span>Tier-1 Equipment Catalog</span>
         </div>
         <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
           Premium Hardware & Solar Equipment
         </h2>
-        <p className="mt-3 text-sm sm:text-base text-slate-500 max-w-2xl mx-auto">
+        <p className="text-sm sm:text-base text-slate-500 max-w-2xl mx-auto">
           We partner exclusively with top Bloomberg Tier-1 solar manufacturers to supply long-lasting, high-efficiency photovoltaics, hybrid inverters, and lithium storage units.
         </p>
+
+        {onViewAllProducts && (
+          <div className="pt-2">
+            <button
+              onClick={onViewAllProducts}
+              className="inline-flex items-center gap-2 bg-[#0A4D9B] hover:bg-[#083a75] text-white font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-md transition-all hover:scale-105"
+            >
+              <span>Explore Dedicated Store & Spec Comparison Center</span>
+              <ArrowRight className="w-4 h-4 text-[#FFC107]" />
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Filters & Search Bar */}
