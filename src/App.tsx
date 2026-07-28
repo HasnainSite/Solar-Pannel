@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { SolarCalculator } from './components/Calculator';
@@ -32,6 +32,14 @@ export default function App() {
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
   const [termsModalOpen, setTermsModalOpen] = useState(false);
 
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+
   const handleOpenQuoteWithDetails = (details: string) => {
     setQuotePrefilledDetails(details);
     setQuoteModalOpen(true);
@@ -39,7 +47,7 @@ export default function App() {
 
   return (
     <div className={`min-h-screen font-sans transition-colors duration-300 ${
-      darkMode ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-900'
+      darkMode ? 'dark bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-900'
     }`}>
       {/* Sticky Header */}
       <Header

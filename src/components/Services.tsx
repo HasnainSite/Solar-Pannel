@@ -136,7 +136,7 @@ export const Services: React.FC<ServicesProps> = ({ darkMode, onOpenQuoteWithSer
             </div>
 
             <div className="p-6 sm:p-8 space-y-6">
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className={`text-sm sm:text-base leading-relaxed ${darkMode ? 'text-slate-200' : 'text-slate-600'}`}>
                 {selectedService.fullDesc}
               </p>
 
@@ -146,9 +146,16 @@ export const Services: React.FC<ServicesProps> = ({ darkMode, onOpenQuoteWithSer
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {selectedService.features.map((feat, i) => (
-                    <div key={i} className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs sm:text-sm font-medium">
+                    <div
+                      key={i}
+                      className={`flex items-center gap-2.5 p-3 rounded-xl border text-xs sm:text-sm font-medium ${
+                        darkMode
+                          ? 'bg-slate-800/90 border-slate-700 text-slate-100'
+                          : 'bg-slate-50 border-slate-200 text-slate-800'
+                      }`}
+                    >
                       <ShieldCheck className="w-4 h-4 text-[#2E8B57] flex-shrink-0" />
-                      <span>{feat}</span>
+                      <span className={darkMode ? 'text-slate-100' : 'text-slate-800'}>{feat}</span>
                     </div>
                   ))}
                 </div>
@@ -167,7 +174,7 @@ export const Services: React.FC<ServicesProps> = ({ darkMode, onOpenQuoteWithSer
                     setSelectedService(null);
                     onOpenQuoteWithService(title);
                   }}
-                  className="bg-[#0A4D9B] hover:bg-[#083a75] text-white font-bold px-6 py-2.5 rounded-xl text-xs sm:text-sm shadow-lg shadow-blue-900/20 transition-all flex items-center gap-2"
+                  className="bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-bold px-6 py-2.5 rounded-xl text-xs sm:text-sm shadow-lg shadow-purple-900/20 transition-all flex items-center gap-2"
                 >
                   <span>Book This Service Now</span>
                   <ArrowRight className="w-4 h-4 text-amber-400" />

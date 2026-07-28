@@ -219,7 +219,7 @@ export const Products: React.FC<ProductsProps> = ({ darkMode, onOpenQuoteWithPro
             </div>
 
             <div className="p-6 sm:p-8 space-y-6">
-              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className={`text-sm leading-relaxed ${darkMode ? 'text-slate-200' : 'text-slate-600'}`}>
                 {selectedProduct.description}
               </p>
 
@@ -230,17 +230,30 @@ export const Products: React.FC<ProductsProps> = ({ darkMode, onOpenQuoteWithPro
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {Object.entries(selectedProduct.specs).map(([key, value]) => (
-                    <div key={key} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs">
-                      <span className="text-slate-500 font-medium">{key}:</span>
-                      <span className="font-bold text-slate-800 dark:text-white">{value}</span>
+                    <div
+                      key={key}
+                      className={`p-3 rounded-xl border flex justify-between items-center text-xs ${
+                        darkMode ? 'bg-slate-800/90 border-slate-700' : 'bg-slate-50 border-slate-200'
+                      }`}
+                    >
+                      <span className={darkMode ? 'text-slate-300 font-medium' : 'text-slate-500 font-medium'}>{key}:</span>
+                      <span className="font-bold text-slate-900 dark:text-white">{value}</span>
                     </div>
                   ))}
-                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs">
-                    <span className="text-slate-500 font-medium">Warranty Coverage:</span>
+                  <div
+                    className={`p-3 rounded-xl border flex justify-between items-center text-xs ${
+                      darkMode ? 'bg-slate-800/90 border-slate-700' : 'bg-slate-50 border-slate-200'
+                    }`}
+                  >
+                    <span className={darkMode ? 'text-slate-300 font-medium' : 'text-slate-500 font-medium'}>Warranty Coverage:</span>
                     <span className="font-bold text-[#2E8B57]">{selectedProduct.warranty}</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs">
-                    <span className="text-slate-500 font-medium">Estimated Price:</span>
+                  <div
+                    className={`p-3 rounded-xl border flex justify-between items-center text-xs ${
+                      darkMode ? 'bg-slate-800/90 border-slate-700' : 'bg-slate-50 border-slate-200'
+                    }`}
+                  >
+                    <span className={darkMode ? 'text-slate-300 font-medium' : 'text-slate-500 font-medium'}>Estimated Price:</span>
                     <span className="font-bold text-[#6D28D9] dark:text-purple-400">{selectedProduct.priceRange}</span>
                   </div>
                 </div>
@@ -260,7 +273,7 @@ export const Products: React.FC<ProductsProps> = ({ darkMode, onOpenQuoteWithPro
                     setSelectedProduct(null);
                     onOpenQuoteWithProduct(name);
                   }}
-                  className="bg-[#0A4D9B] hover:bg-[#083a75] text-white font-bold px-6 py-2.5 rounded-xl text-xs sm:text-sm shadow-lg shadow-blue-900/20 transition-all flex items-center gap-2"
+                  className="bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-bold px-6 py-2.5 rounded-xl text-xs sm:text-sm shadow-lg shadow-purple-900/20 transition-all flex items-center gap-2"
                 >
                   <span>Request Wholesale Quote</span>
                   <ArrowRight className="w-4 h-4 text-amber-400" />
