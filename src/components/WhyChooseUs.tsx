@@ -10,7 +10,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ darkMode }) => {
     {
       title: 'NABCEP Certified Engineers',
       desc: 'Our electrical engineers and system architects hold master NABCEP certifications and perform every step in-house.',
-      icon: <Award className="w-6 h-6 text-[#0A4D9B]" />,
+      icon: <Award className="w-6 h-6 text-[#6D28D9]" />,
       badge: 'Master Electricians',
     },
     {
@@ -28,7 +28,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ darkMode }) => {
     {
       title: '25-Year Linear Power Guarantee',
       desc: 'Guaranteed 85%+ module output performance over 25 years with free component replacement coverage.',
-      icon: <Zap className="w-6 h-6 text-[#0A4D9B]" />,
+      icon: <Zap className="w-6 h-6 text-[#6D28D9]" />,
       badge: 'Peace of Mind',
     },
     {

@@ -27,7 +27,7 @@ export const Projects: React.FC<ProjectsProps> = ({ darkMode, onOpenQuoteModal }
     <section id="projects" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Title */}
       <div className="text-center max-w-3xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 bg-[#0A4D9B]/10 text-[#0A4D9B] dark:bg-blue-500/10 dark:text-blue-400 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+        <div className="inline-flex items-center gap-2 bg-[#6D28D9]/10 text-[#6D28D9] dark:bg-purple-500/10 dark:text-purple-400 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
           <Layers className="w-4 h-4 text-[#FFC107]" />
           <span>Proven Track Record</span>
         </div>
@@ -47,7 +47,7 @@ export const Projects: React.FC<ProjectsProps> = ({ darkMode, onOpenQuoteModal }
             onClick={() => setActiveFilter(tab.id as any)}
             className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all ${
               activeFilter === tab.id
-                ? 'bg-[#0A4D9B] text-white shadow-md shadow-blue-900/20'
+                ? 'bg-[#6D28D9] text-white shadow-md shadow-purple-900/20'
                 : darkMode
                 ? 'bg-slate-800 text-slate-300 hover:bg-slate-700'
                 : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -78,7 +78,7 @@ export const Projects: React.FC<ProjectsProps> = ({ darkMode, onOpenQuoteModal }
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
               
               <div className="absolute top-3 left-3">
-                <span className="bg-[#0A4D9B] text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                <span className="bg-[#6D28D9] text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider">
                   {project.category}
                 </span>
               </div>
@@ -108,7 +108,7 @@ export const Projects: React.FC<ProjectsProps> = ({ darkMode, onOpenQuoteModal }
               <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100 dark:border-slate-800 text-xs">
                 <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-700">
                   <div className="text-[10px] uppercase font-bold text-slate-400">Capacity</div>
-                  <div className="font-extrabold text-[#0A4D9B] dark:text-blue-400 mt-0.5">{project.capacity}</div>
+                  <div className="font-extrabold text-[#6D28D9] dark:text-purple-400 mt-0.5">{project.capacity}</div>
                 </div>
 
                 <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-700">

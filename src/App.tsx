@@ -80,16 +80,13 @@ export default function App() {
               }}
             />
 
-            {/* Interactive Solar ROI & Net Metering Calculator */}
+            {/* Interactive Solar ROI Calculator */}
             <SolarCalculator
               darkMode={darkMode}
               onOpenQuoteWithDetails={handleOpenQuoteWithDetails}
             />
 
-            {/* About Company */}
-            <AboutUs darkMode={darkMode} />
-
-            {/* Our Services */}
+            {/* Services */}
             <Services
               darkMode={darkMode}
               onOpenQuoteWithService={(serviceTitle) => handleOpenQuoteWithDetails(`Service Inquiry: ${serviceTitle}`)}
@@ -102,16 +99,7 @@ export default function App() {
               onViewAllProducts={() => setCurrentView('products')}
             />
 
-            {/* Net Metering Interconnection Guide */}
-            <NetMetering
-              darkMode={darkMode}
-              onOpenQuoteModal={() => {
-                setQuotePrefilledDetails('Inquiry regarding Net Metering Interconnection Approval');
-                setQuoteModalOpen(true);
-              }}
-            />
-
-            {/* Our 6-Step Installation Process */}
+            {/* Installation Process */}
             <Process
               darkMode={darkMode}
               onOpenQuoteModal={() => {
@@ -129,30 +117,13 @@ export default function App() {
               }}
             />
 
-            {/* Why Choose Us */}
-            <WhyChooseUs darkMode={darkMode} />
-
             {/* Customer Testimonials */}
             <Testimonials darkMode={darkMode} />
-
-            {/* Partner Brands Ecosystem */}
-            <Brands darkMode={darkMode} />
 
             {/* FAQ Accordion */}
             <FaqSection darkMode={darkMode} />
 
-            {/* Blog & Solar News */}
-            <BlogSection darkMode={darkMode} />
-
-            {/* Call To Action Banner */}
-            <CtaBanner
-              onOpenQuoteModal={() => {
-                setQuotePrefilledDetails('');
-                setQuoteModalOpen(true);
-              }}
-            />
-
-            {/* Contact Form & Simulated Google Map */}
+            {/* Contact Form & Location */}
             <Contact
               darkMode={darkMode}
               prefilledDetails={quotePrefilledDetails}

@@ -38,7 +38,7 @@ export const NetMetering: React.FC<NetMeteringProps> = ({ darkMode, onOpenQuoteM
     <section id="net-metering" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Container - Bento Style Banner */}
       <div className={`rounded-3xl border shadow-xl p-6 sm:p-10 lg:p-12 overflow-hidden relative ${
-        darkMode ? 'bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border-slate-800' : 'bg-gradient-to-br from-slate-900 via-[#0A4D9B] to-slate-900 text-white border-slate-800'
+        darkMode ? 'bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border-slate-800' : 'bg-gradient-to-br from-slate-900 via-[#5B21B6] to-slate-950 text-white border-slate-800'
       }`}>
         {/* Title */}
         <div className="max-w-3xl space-y-4 mb-12 relative z-10">

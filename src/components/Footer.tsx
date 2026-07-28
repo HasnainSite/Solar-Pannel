@@ -48,7 +48,7 @@ export const Footer: React.FC<FooterProps> = ({ darkMode, onOpenPrivacyModal, on
                 placeholder="Enter your email address..."
                 value={newsletterEmail}
                 onChange={(e) => setNewsletterEmail(e.target.value)}
-                className="w-full sm:w-80 px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-400 text-xs focus:outline-none focus:ring-2 focus:ring-[#0A4D9B]"
+                className="w-full sm:w-80 px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-400 text-xs focus:outline-none focus:ring-2 focus:ring-[#6D28D9]"
               />
               <button
                 type="submit"
@@ -66,7 +66,7 @@ export const Footer: React.FC<FooterProps> = ({ darkMode, onOpenPrivacyModal, on
         {/* Col 1: Brand Info */}
         <div className="lg:col-span-2 space-y-4">
           <a href="#home" className="flex items-center gap-2.5">
-            <div className="w-10 h-10 bg-[#0A4D9B] rounded-xl flex items-center justify-center shadow-lg">
+            <div className="w-10 h-10 bg-[#6D28D9] rounded-xl flex items-center justify-center shadow-lg shadow-purple-900/30">
               <Sun className="w-6 h-6 text-[#FFC107]" />
             </div>
             <span className="text-xl font-black text-white tracking-tight">
@@ -118,7 +118,7 @@ export const Footer: React.FC<FooterProps> = ({ darkMode, onOpenPrivacyModal, on
           <h4 className="text-xs font-extrabold uppercase tracking-widest text-white">Headquarters</h4>
           <ul className="space-y-2.5">
             <li className="flex items-start gap-2">
-              <MapPin className="w-4 h-4 text-[#0A4D9B] flex-shrink-0 mt-0.5" />
+              <MapPin className="w-4 h-4 text-[#6D28D9] flex-shrink-0 mt-0.5" />
               <span>100 Clean Energy Blvd, San Jose, CA 95112</span>
             </li>
             <li className="flex items-center gap-2">

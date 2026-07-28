@@ -85,7 +85,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ darkMode, onOpenQuot
     }`}>
       {/* Page Title & Intro */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 bg-[#0A4D9B]/10 text-[#0A4D9B] dark:bg-blue-500/10 dark:text-blue-400 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 bg-[#6D28D9]/10 text-[#6D28D9] dark:bg-purple-500/10 dark:text-purple-400 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider">
           <Package className="w-4 h-4 text-[#FFC107]" />
           <span>Tier-1 Photovoltaic & Hardware Store</span>
         </div>
@@ -110,7 +110,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ darkMode, onOpenQuot
               placeholder="Search 580W panels, inverters, batteries..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className={`w-full pl-10 pr-4 py-2.5 rounded-2xl text-xs font-medium border focus:outline-none focus:ring-2 focus:ring-[#0A4D9B] ${
+              className={`w-full pl-10 pr-4 py-2.5 rounded-2xl text-xs font-medium border focus:outline-none focus:ring-2 focus:ring-[#6D28D9] ${
                 darkMode ? 'bg-slate-800 border-slate-700 text-white placeholder-slate-400' : 'bg-slate-50 border-slate-200 text-slate-900'
               }`}
             />
@@ -133,7 +133,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ darkMode, onOpenQuot
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className={`p-2.5 rounded-2xl text-xs font-bold border focus:outline-none focus:ring-2 focus:ring-[#0A4D9B] ${
+              className={`p-2.5 rounded-2xl text-xs font-bold border focus:outline-none focus:ring-2 focus:ring-[#6D28D9] ${
                 darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200 text-slate-900'
               }`}
             >
@@ -152,7 +152,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ darkMode, onOpenQuot
               onClick={() => setSelectedCategory(cat.id)}
               className={`px-4 py-2 rounded-2xl text-xs font-extrabold whitespace-nowrap transition-all ${
                 selectedCategory === cat.id
-                  ? 'bg-[#0A4D9B] text-white shadow-md shadow-blue-900/20'
+                  ? 'bg-[#6D28D9] text-white shadow-md shadow-purple-900/20'
                   : darkMode
                   ? 'bg-slate-800 text-slate-300 hover:bg-slate-700'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
@@ -170,7 +170,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ darkMode, onOpenQuot
         {compareList.length > 0 && (
           <button
             onClick={() => setIsCompareDrawerOpen(true)}
-            className="text-[#0A4D9B] dark:text-blue-400 underline font-black flex items-center gap-1.5"
+            className="text-[#6D28D9] dark:text-purple-400 underline font-black flex items-center gap-1.5"
           >
             <Layers className="w-4 h-4 text-amber-500" />
             Compare Selected ({compareList.length})
@@ -198,7 +198,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ darkMode, onOpenQuot
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
                   />
                   <div className="absolute top-3 left-3 flex flex-col gap-1.5">
-                    <span className="bg-[#0A4D9B] text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow-md">
+                    <span className="bg-[#6D28D9] text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow-md">
                       {product.category}
                     </span>
                     {product.popular && (
@@ -230,7 +230,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ darkMode, onOpenQuot
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold tracking-tight line-clamp-2 group-hover:text-[#0A4D9B] dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-base font-bold tracking-tight line-clamp-2 group-hover:text-[#6D28D9] dark:group-hover:text-purple-400 transition-colors">
                     {product.name}
                   </h3>
 
@@ -271,7 +271,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ darkMode, onOpenQuot
 
                   <button
                     onClick={() => setSelectedProductModal(product)}
-                    className="text-[#0A4D9B] dark:text-blue-400 font-extrabold hover:underline flex items-center gap-1"
+                    className="text-[#6D28D9] dark:text-purple-400 font-extrabold hover:underline flex items-center gap-1"
                   >
                     <span>View Specs</span>
                     <Info className="w-3.5 h-3.5" />
@@ -280,7 +280,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ darkMode, onOpenQuot
 
                 <button
                   onClick={() => onOpenQuoteWithProduct(product.name)}
-                  className="w-full bg-[#0A4D9B] hover:bg-[#083a75] text-white font-extrabold py-3 rounded-xl shadow-md text-xs flex items-center justify-center gap-2 transition-transform active:scale-95"
+                  className="w-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-extrabold py-3 rounded-xl shadow-md text-xs flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-purple-900/20"
                 >
                   <ShoppingCart className="w-4 h-4 text-amber-400" />
                   <span>Request Product Quote</span>
@@ -325,7 +325,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ darkMode, onOpenQuot
           <div className={`max-w-4xl w-full rounded-3xl border shadow-2xl overflow-hidden max-h-[90vh] flex flex-col ${
             darkMode ? 'bg-slate-900 border-slate-800 text-white' : 'bg-white border-slate-200 text-slate-900'
           }`}>
-            <div className="p-6 bg-[#0A4D9B] text-white flex items-center justify-between">
+            <div className="p-6 bg-[#6D28D9] text-white flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Layers className="w-5 h-5 text-amber-400" />
                 <h3 className="font-extrabold text-lg">Solar Equipment Side-By-Side Comparison</h3>
@@ -348,7 +348,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ darkMode, onOpenQuot
 
                 {compareList.map((item) => (
                   <div key={item.id} className="space-y-6 p-3 rounded-2xl bg-slate-100 dark:bg-slate-800">
-                    <div className="h-10 font-bold line-clamp-2 text-[#0A4D9B] dark:text-blue-400">{item.name}</div>
+                    <div className="h-10 font-bold line-clamp-2 text-[#6D28D9] dark:text-purple-400">{item.name}</div>
                     <div className="capitalize font-semibold">{item.category}</div>
                     <div className="font-extrabold text-emerald-600 dark:text-emerald-400">{item.priceRange}</div>
                     <div className="font-bold text-amber-500">{item.efficiency || 'Standard Output'}</div>
@@ -359,7 +359,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ darkMode, onOpenQuot
                           setIsCompareDrawerOpen(false);
                           onOpenQuoteWithProduct(item.name);
                         }}
-                        className="bg-[#0A4D9B] text-white font-bold px-3 py-1.5 rounded-lg text-[10px] w-full"
+                        className="bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-bold px-3 py-1.5 rounded-lg text-[10px] w-full shadow-sm"
                       >
                         Request Quote
                       </button>
@@ -387,7 +387,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ darkMode, onOpenQuot
                 <X className="w-5 h-5" />
               </button>
               <div className="absolute bottom-4 left-6 right-6 text-white space-y-1">
-                <span className="bg-[#0A4D9B] text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase">
+                <span className="bg-[#6D28D9] text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase">
                   {selectedProductModal.category}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-extrabold">{selectedProductModal.name}</h3>
@@ -432,7 +432,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ darkMode, onOpenQuot
                     setSelectedProductModal(null);
                     onOpenQuoteWithProduct(name);
                   }}
-                  className="w-2/3 bg-[#0A4D9B] hover:bg-[#083a75] text-white font-extrabold py-3 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg"
+                  className="w-2/3 bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-extrabold py-3 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-purple-900/20"
                 >
                   <ShoppingCart className="w-4 h-4 text-amber-400" />
                   <span>Request Turnkey Quote</span>

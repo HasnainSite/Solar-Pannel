@@ -36,7 +36,7 @@ export const Contact: React.FC<ContactProps> = ({ darkMode, prefilledDetails }) 
     <section id="contact" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Title */}
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center gap-2 bg-[#0A4D9B]/10 text-[#0A4D9B] dark:bg-blue-500/10 dark:text-blue-400 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+        <div className="inline-flex items-center gap-2 bg-[#6D28D9]/10 text-[#6D28D9] dark:bg-purple-500/10 dark:text-purple-400 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
           <Phone className="w-4 h-4 text-[#FFC107]" />
           <span>Get In Touch</span>
         </div>
@@ -91,7 +91,7 @@ export const Contact: React.FC<ContactProps> = ({ darkMode, prefilledDetails }) 
                     placeholder="John Doe"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className={`mt-1 w-full p-3 rounded-xl text-xs font-medium border focus:ring-2 focus:ring-[#0A4D9B] ${
+                    className={`mt-1 w-full p-3 rounded-xl text-xs font-medium border focus:ring-2 focus:ring-[#6D28D9] ${
                       darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200 text-slate-900'
                     }`}
                   />
@@ -105,7 +105,7 @@ export const Contact: React.FC<ContactProps> = ({ darkMode, prefilledDetails }) 
                     placeholder="+1 (555) 000-0000"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className={`mt-1 w-full p-3 rounded-xl text-xs font-medium border focus:ring-2 focus:ring-[#0A4D9B] ${
+                    className={`mt-1 w-full p-3 rounded-xl text-xs font-medium border focus:ring-2 focus:ring-[#6D28D9] ${
                       darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200 text-slate-900'
                     }`}
                   />
@@ -121,7 +121,7 @@ export const Contact: React.FC<ContactProps> = ({ darkMode, prefilledDetails }) 
                     placeholder="john@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className={`mt-1 w-full p-3 rounded-xl text-xs font-medium border focus:ring-2 focus:ring-[#0A4D9B] ${
+                    className={`mt-1 w-full p-3 rounded-xl text-xs font-medium border focus:ring-2 focus:ring-[#6D28D9] ${
                       darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200 text-slate-900'
                     }`}
                   />
@@ -132,7 +132,7 @@ export const Contact: React.FC<ContactProps> = ({ darkMode, prefilledDetails }) 
                   <select
                     value={formData.propertyType}
                     onChange={(e) => setFormData({ ...formData, propertyType: e.target.value as any })}
-                    className={`mt-1 w-full p-3 rounded-xl text-xs font-medium border focus:ring-2 focus:ring-[#0A4D9B] ${
+                    className={`mt-1 w-full p-3 rounded-xl text-xs font-medium border focus:ring-2 focus:ring-[#6D28D9] ${
                       darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200 text-slate-900'
                     }`}
                   >
@@ -150,7 +150,7 @@ export const Contact: React.FC<ContactProps> = ({ darkMode, prefilledDetails }) 
                   placeholder="100 Solar Way, San Jose, CA 95112"
                   value={formData.address}
                   onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                  className={`mt-1 w-full p-3 rounded-xl text-xs font-medium border focus:ring-2 focus:ring-[#0A4D9B] ${
+                  className={`mt-1 w-full p-3 rounded-xl text-xs font-medium border focus:ring-2 focus:ring-[#6D28D9] ${
                     darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200 text-slate-900'
                   }`}
                 />
@@ -163,7 +163,7 @@ export const Contact: React.FC<ContactProps> = ({ darkMode, prefilledDetails }) 
                   placeholder="Tell us about your roof size, battery storage needs, or specific questions..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className={`mt-1 w-full p-3 rounded-xl text-xs font-medium border focus:ring-2 focus:ring-[#0A4D9B] ${
+                  className={`mt-1 w-full p-3 rounded-xl text-xs font-medium border focus:ring-2 focus:ring-[#6D28D9] ${
                     darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200 text-slate-900'
                   }`}
                 />
@@ -171,7 +171,7 @@ export const Contact: React.FC<ContactProps> = ({ darkMode, prefilledDetails }) 
 
               <button
                 type="submit"
-                className="w-full bg-[#0A4D9B] hover:bg-[#083a75] text-white font-extrabold py-3.5 rounded-xl shadow-lg transition-transform hover:scale-[1.01] text-xs sm:text-sm flex items-center justify-center gap-2"
+                className="w-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-extrabold py-3.5 rounded-xl shadow-lg transition-transform hover:scale-[1.01] text-xs sm:text-sm flex items-center justify-center gap-2 shadow-purple-900/20"
               >
                 <Send className="w-4 h-4 text-[#FFC107]" />
                 <span>Submit Free Assessment Request</span>
@@ -190,7 +190,7 @@ export const Contact: React.FC<ContactProps> = ({ darkMode, prefilledDetails }) 
 
             <div className="space-y-3 text-xs sm:text-sm">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-[#0A4D9B] flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-[#6D28D9] dark:text-purple-400 flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold">San Jose Headquarters</div>
                   <div className="text-slate-500">100 Clean Energy Blvd, Suite 400, San Jose, CA 95112</div>
@@ -201,7 +201,7 @@ export const Contact: React.FC<ContactProps> = ({ darkMode, prefilledDetails }) 
                 <Phone className="w-5 h-5 text-[#2E8B57] flex-shrink-0" />
                 <div>
                   <div className="font-bold">Phone Number</div>
-                  <a href="tel:18005557652" className="text-[#0A4D9B] font-extrabold hover:underline">
+                  <a href="tel:18005557652" className="text-[#6D28D9] dark:text-purple-400 font-extrabold hover:underline">
                     +1 (800) 555-SOLAR (7652)
                   </a>
                 </div>
@@ -248,7 +248,7 @@ export const Contact: React.FC<ContactProps> = ({ darkMode, prefilledDetails }) 
               src="https://maps.google.com/maps?q=San%20Jose%20California%20Clean%20Energy&t=&z=13&ie=UTF8&iwloc=&output=embed"
             ></iframe>
             <div className="absolute bottom-3 left-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-[11px] font-bold shadow-md flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-[#0A4D9B]" />
+              <MapPin className="w-4 h-4 text-[#6D28D9] dark:text-purple-400" />
               <span>SolarTech Energy HQ • San Jose, CA</span>
             </div>
           </div>

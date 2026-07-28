@@ -43,7 +43,7 @@ export const BlogSection: React.FC<BlogProps> = ({ darkMode }) => {
                   alt={post.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <span className="absolute top-3 left-3 bg-[#0A4D9B] text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                <span className="absolute top-3 left-3 bg-[#6D28D9] text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider">
                   {post.category}
                 </span>
               </div>
@@ -61,7 +61,7 @@ export const BlogSection: React.FC<BlogProps> = ({ darkMode }) => {
                   </span>
                 </div>
 
-                <h3 className="text-base font-bold tracking-tight line-clamp-2 group-hover:text-[#0A4D9B] dark:group-hover:text-blue-400 transition-colors">
+                <h3 className="text-base font-bold tracking-tight line-clamp-2 group-hover:text-[#6D28D9] dark:group-hover:text-purple-400 transition-colors">
                   {post.title}
                 </h3>
 
@@ -71,7 +71,7 @@ export const BlogSection: React.FC<BlogProps> = ({ darkMode }) => {
               </div>
             </div>
 
-            <div className="p-5 pt-0 flex items-center justify-between text-xs font-bold text-[#0A4D9B] dark:text-blue-400">
+            <div className="p-5 pt-0 flex items-center justify-between text-xs font-bold text-[#6D28D9] dark:text-purple-400">
               <span>Read Full Article</span>
               <ArrowRight className="w-4 h-4 text-amber-400 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -126,7 +126,7 @@ export const BlogSection: React.FC<BlogProps> = ({ darkMode }) => {
               <div className="pt-2 flex justify-end">
                 <button
                   onClick={() => setSelectedPost(null)}
-                  className="bg-[#0A4D9B] text-white px-6 py-2.5 rounded-xl text-xs font-bold"
+                  className="bg-[#6D28D9] hover:bg-[#5B21B6] text-white px-6 py-2.5 rounded-xl text-xs font-bold"
                 >
                   Close Article
                 </button>

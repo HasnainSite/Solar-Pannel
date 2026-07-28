@@ -29,7 +29,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, prefill
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fadeIn">
       <div className="max-w-xl w-full bg-slate-900 border border-slate-800 text-white rounded-3xl shadow-2xl overflow-hidden relative">
         {/* Top Header Bar */}
-        <div className="p-6 bg-gradient-to-r from-[#0A4D9B] to-[#083a75] flex items-center justify-between">
+        <div className="p-6 bg-gradient-to-r from-[#6D28D9] to-[#5B21B6] flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-9 h-9 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-bold">
               <Sun className="w-5 h-5 fill-current" />
@@ -83,7 +83,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, prefill
                           onClick={() => setPropertyType(type)}
                           className={`py-2.5 px-3 rounded-xl text-xs font-bold border capitalize transition-colors ${
                             propertyType === type
-                              ? 'bg-[#0A4D9B] text-white border-[#0A4D9B]'
+                              ? 'bg-[#6D28D9] text-white border-[#6D28D9]'
                               : 'bg-slate-800 border-slate-700 text-slate-300'
                           }`}
                         >
@@ -98,7 +98,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, prefill
                     <select
                       value={monthlyBill}
                       onChange={(e) => setMonthlyBill(e.target.value)}
-                      className="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 text-xs font-medium text-white focus:ring-2 focus:ring-[#0A4D9B]"
+                      className="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 text-xs font-medium text-white focus:ring-2 focus:ring-[#6D28D9]"
                     >
                       <option>$100 - $200 / mo</option>
                       <option>$200 - $400 / mo</option>
@@ -125,7 +125,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, prefill
                   <button
                     type="button"
                     onClick={() => setStep(2)}
-                    className="w-full bg-[#0A4D9B] hover:bg-[#083a75] text-white font-extrabold py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2 text-xs sm:text-sm"
+                    className="w-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-extrabold py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2 text-xs sm:text-sm shadow-purple-900/30"
                   >
                     <span>Next: Contact Info</span>
                     <ArrowRight className="w-4 h-4 text-amber-400" />

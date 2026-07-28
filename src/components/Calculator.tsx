@@ -59,7 +59,7 @@ export const SolarCalculator: React.FC<CalculatorProps> = ({ darkMode, onOpenQuo
     <section id="calculator" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center gap-2 bg-[#0A4D9B]/10 text-[#0A4D9B] dark:bg-blue-500/10 dark:text-blue-400 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+        <div className="inline-flex items-center gap-2 bg-[#6D28D9]/10 text-[#6D28D9] dark:bg-purple-500/10 dark:text-purple-400 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
           <Calculator className="w-4 h-4 text-[#FFC107]" />
           <span>Interactive Savings Estimator</span>
         </div>
@@ -98,7 +98,7 @@ export const SolarCalculator: React.FC<CalculatorProps> = ({ darkMode, onOpenQuo
                   onClick={() => setCalcState({ ...calcState, propertyType: type.id as any })}
                   className={`py-3 px-3 rounded-2xl text-xs sm:text-sm font-bold border transition-all flex flex-col items-center gap-1 ${
                     calcState.propertyType === type.id
-                      ? 'bg-[#0A4D9B] text-white border-[#0A4D9B] shadow-md'
+                      ? 'bg-[#6D28D9] text-white border-[#6D28D9] shadow-md'
                       : darkMode
                       ? 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-750'
                       : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
@@ -117,7 +117,7 @@ export const SolarCalculator: React.FC<CalculatorProps> = ({ darkMode, onOpenQuo
               <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                 Average Monthly Electricity Bill
               </label>
-              <span className="text-xl font-extrabold text-[#0A4D9B] dark:text-blue-400">
+              <span className="text-xl font-extrabold text-[#6D28D9] dark:text-purple-400">
                 ${calcState.monthlyBill} <span className="text-xs text-slate-400">/ mo</span>
               </span>
             </div>
@@ -128,7 +128,7 @@ export const SolarCalculator: React.FC<CalculatorProps> = ({ darkMode, onOpenQuo
               step="25"
               value={calcState.monthlyBill}
               onChange={(e) => setCalcState({ ...calcState, monthlyBill: Number(e.target.value) })}
-              className="w-full h-3 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-[#0A4D9B]"
+              className="w-full h-3 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-[#6D28D9]"
             />
             <div className="flex justify-between text-[11px] text-slate-400 font-medium">
               <span>$50</span>
@@ -216,7 +216,7 @@ export const SolarCalculator: React.FC<CalculatorProps> = ({ darkMode, onOpenQuo
 
         {/* Right Output Results Column (5 Cols) - High Contrast Bento Panel */}
         <div className={`lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between ${
-          darkMode ? 'bg-slate-950 text-white' : 'bg-[#0A4D9B] text-white'
+          darkMode ? 'bg-slate-950 text-white' : 'bg-gradient-to-br from-[#6D28D9] to-[#4C1D95] text-white'
         }`}>
           <div className="space-y-6">
             <div className="flex items-center justify-between border-b border-white/10 pb-4">

@@ -13,15 +13,15 @@ export const Services: React.FC<ServicesProps> = ({ darkMode, onOpenQuoteWithSer
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Home': return <Home className="w-6 h-6 text-[#0A4D9B]" />;
-      case 'Building2': return <Building2 className="w-6 h-6 text-[#0A4D9B]" />;
-      case 'Factory': return <Factory className="w-6 h-6 text-[#0A4D9B]" />;
+      case 'Home': return <Home className="w-6 h-6 text-[#6D28D9]" />;
+      case 'Building2': return <Building2 className="w-6 h-6 text-[#6D28D9]" />;
+      case 'Factory': return <Factory className="w-6 h-6 text-[#6D28D9]" />;
       case 'Zap': return <Zap className="w-6 h-6 text-[#FFC107]" />;
       case 'Wrench': return <Wrench className="w-6 h-6 text-[#2E8B57]" />;
-      case 'FileText': return <FileText className="w-6 h-6 text-[#0A4D9B]" />;
+      case 'FileText': return <FileText className="w-6 h-6 text-[#6D28D9]" />;
       case 'Sparkles': return <Sparkles className="w-6 h-6 text-[#FFC107]" />;
       case 'BatteryCharging': return <BatteryCharging className="w-6 h-6 text-[#2E8B57]" />;
-      default: return <Zap className="w-6 h-6 text-[#0A4D9B]" />;
+      default: return <Zap className="w-6 h-6 text-[#6D28D9]" />;
     }
   };
 
@@ -29,7 +29,7 @@ export const Services: React.FC<ServicesProps> = ({ darkMode, onOpenQuoteWithSer
     <section id="services" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Section Title */}
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center gap-2 bg-[#0A4D9B]/10 text-[#0A4D9B] dark:bg-blue-500/10 dark:text-blue-400 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+        <div className="inline-flex items-center gap-2 bg-[#6D28D9]/10 text-[#6D28D9] dark:bg-purple-500/10 dark:text-purple-400 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
           <Zap className="w-4 h-4 text-[#FFC107]" />
           <span>Turnkey Clean Energy Services</span>
         </div>
@@ -71,7 +71,7 @@ export const Services: React.FC<ServicesProps> = ({ darkMode, onOpenQuoteWithSer
 
               {/* Content */}
               <div className="p-5 space-y-3">
-                <h3 className="text-lg font-bold tracking-tight line-clamp-1 group-hover:text-[#0A4D9B] dark:group-hover:text-blue-400 transition-colors">
+                <h3 className="text-lg font-bold tracking-tight line-clamp-1 group-hover:text-[#6D28D9] dark:group-hover:text-purple-400 transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2">
@@ -100,7 +100,7 @@ export const Services: React.FC<ServicesProps> = ({ darkMode, onOpenQuoteWithSer
               </button>
               <button
                 onClick={() => onOpenQuoteWithService(service.title)}
-                className="bg-[#0A4D9B] hover:bg-[#083a75] text-white p-2.5 rounded-xl transition-transform hover:scale-105"
+                className="bg-[#6D28D9] hover:bg-[#5B21B6] text-white p-2.5 rounded-xl transition-transform hover:scale-105 shadow-md shadow-purple-900/20"
                 title="Book Service"
               >
                 <ArrowRight className="w-4 h-4 text-[#FFC107]" />

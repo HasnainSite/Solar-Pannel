@@ -31,7 +31,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ darkMode }) => {
           }`}
         >
           <div className="space-y-4">
-            <span className="text-xs font-extrabold text-[#0A4D9B] uppercase tracking-widest">
+            <span className="text-xs font-extrabold text-[#6D28D9] dark:text-purple-400 uppercase tracking-widest">
               Who We Are
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
@@ -71,8 +71,8 @@ export const AboutUs: React.FC<AboutUsProps> = ({ darkMode }) => {
             }`}
           >
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#0A4D9B]/10 text-[#0A4D9B] flex items-center justify-center">
-                <Target className="w-5 h-5 text-[#0A4D9B]" />
+              <div className="w-10 h-10 rounded-2xl bg-[#6D28D9]/10 text-[#6D28D9] dark:bg-purple-500/10 dark:text-purple-400 flex items-center justify-center">
+                <Target className="w-5 h-5 text-[#6D28D9] dark:text-purple-400" />
               </div>
               <div>
                 <div className="text-xs font-bold text-slate-400 uppercase">Our Core</div>

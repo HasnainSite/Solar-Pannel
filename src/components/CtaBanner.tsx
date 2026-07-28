@@ -8,7 +8,7 @@ interface CtaBannerProps {
 export const CtaBanner: React.FC<CtaBannerProps> = ({ onOpenQuoteModal }) => {
   return (
     <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="rounded-3xl bg-gradient-to-r from-[#0A4D9B] via-[#083a75] to-[#2E8B57] text-white p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8 border border-blue-900">
+      <div className="rounded-3xl bg-gradient-to-r from-[#6D28D9] via-[#4C1D95] to-[#2E8B57] text-white p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8 border border-purple-900">
         <div className="max-w-2xl space-y-4 text-center lg:text-left z-10">
           <div className="inline-flex items-center gap-2 bg-amber-400 text-slate-950 px-3.5 py-1 rounded-full text-xs font-black uppercase tracking-wider shadow-md">
             <Zap className="w-4 h-4 fill-current text-slate-950" />

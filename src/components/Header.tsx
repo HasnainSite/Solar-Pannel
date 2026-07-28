@@ -52,14 +52,10 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
   const navLinks = [
     { label: 'Home', view: 'home' as const, href: '#home', id: 'home', icon: Home },
     { label: 'Calculator', view: 'home' as const, href: '#calculator', id: 'calculator', icon: Calculator },
-    { label: 'About', view: 'home' as const, href: '#about', id: 'about', icon: Info },
     { label: 'Services', view: 'home' as const, href: '#services', id: 'services', icon: Wrench },
     { label: 'Products', view: 'products' as const, href: '#products', id: 'products', icon: Package },
-    { label: 'Dashboard', view: 'dashboard' as const, href: '#dashboard', id: 'dashboard', icon: LayoutDashboard },
-    { label: 'Net Metering', view: 'home' as const, href: '#net-metering', id: 'net-metering', icon: Zap },
     { label: 'Projects', view: 'home' as const, href: '#projects', id: 'projects', icon: FolderCheck },
-    { label: 'FAQs', view: 'home' as const, href: '#faqs', id: 'faqs', icon: HelpCircle },
-    { label: 'Blog', view: 'home' as const, href: '#blog', id: 'blog', icon: BookOpen },
+    { label: 'Dashboard', view: 'dashboard' as const, href: '#dashboard', id: 'dashboard', icon: LayoutDashboard },
     { label: 'Contact', view: 'home' as const, href: '#contact', id: 'contact', icon: Mail },
   ];
 
@@ -89,8 +85,8 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
           <span className="text-amber-500 font-medium">⚡ 25-Year Power Guarantee</span>
         </div>
         <div className="flex items-center gap-4 whitespace-nowrap">
-          <a href="tel:18005557652" className="flex items-center gap-1.5 hover:text-[#0A4D9B] font-semibold transition-colors">
-            <Phone className="w-3.5 h-3.5 text-[#0A4D9B]" />
+          <a href="tel:18005557652" className="flex items-center gap-1.5 hover:text-[#6D28D9] dark:hover:text-purple-400 font-semibold transition-colors">
+            <Phone className="w-3.5 h-3.5 text-[#6D28D9] dark:text-purple-400" />
             +1 (800) 555-SOLAR
           </a>
           <span className="opacity-30">|</span>
@@ -105,11 +101,11 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand Logo */}
         <button onClick={() => handleNavClick('home', '#home')} className="flex items-center gap-2 sm:gap-2.5 group flex-shrink-0 text-left">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 bg-[#0A4D9B] rounded-xl flex items-center justify-center shadow-md shadow-blue-900/20 group-hover:scale-105 transition-transform flex-shrink-0">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-[#6D28D9] to-[#4C1D95] rounded-xl flex items-center justify-center shadow-md shadow-purple-900/30 group-hover:scale-105 transition-transform flex-shrink-0">
             <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-[#FFC107] animate-pulse" />
           </div>
           <div className="flex flex-col">
-            <span className={`text-base sm:text-lg xl:text-xl font-black tracking-tight whitespace-nowrap ${darkMode ? 'text-white' : 'text-[#0A4D9B]'}`}>
+            <span className={`text-base sm:text-lg xl:text-xl font-black tracking-tight whitespace-nowrap ${darkMode ? 'text-white' : 'text-[#6D28D9]'}`}>
               SOLARTECH <span className="text-[#2E8B57]">ENERGY</span>
             </span>
             <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-slate-500 -mt-1 whitespace-nowrap hidden sm:inline">
@@ -118,20 +114,20 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
           </div>
         </button>
 
-        {/* Desktop Navigation Links - Shown on XL screens */}
-        <nav className="hidden xl:flex items-center gap-1 2xl:gap-1.5">
+        {/* Desktop Navigation Links - Shown on LG+ screens */}
+        <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2">
           {navLinks.map((link) => {
             const isSelectedView = currentView === link.view && (link.view !== 'home' || activeSection === link.id);
             return (
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.view, link.href)}
-                className={`px-2.5 py-1.5 text-xs 2xl:text-sm font-bold rounded-lg transition-all whitespace-nowrap flex items-center gap-1.5 ${
+                className={`px-3 py-2 text-xs xl:text-sm font-bold rounded-xl transition-all whitespace-nowrap flex items-center gap-1.5 ${
                   isSelectedView
-                    ? 'bg-[#0A4D9B] text-white shadow-md shadow-blue-900/20'
+                    ? 'bg-[#6D28D9] text-white shadow-md shadow-purple-900/20'
                     : darkMode
                     ? 'text-slate-300 hover:text-white hover:bg-slate-800'
-                    : 'text-slate-700 hover:text-[#0A4D9B] hover:bg-slate-100'
+                    : 'text-slate-700 hover:text-[#6D28D9] hover:bg-purple-50'
                 }`}
               >
                 {link.view === 'dashboard' && <Activity className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />}
@@ -142,38 +138,7 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
         </nav>
 
         {/* Right CTA Actions */}
-        <div className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
-          {/* Quick Dashboard Shortcut Button */}
-          <button
-            onClick={() => onViewChange('dashboard')}
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-black whitespace-nowrap transition-all shadow-sm flex-shrink-0 ${
-              currentView === 'dashboard'
-                ? 'bg-[#2E8B57] text-white shadow-emerald-900/20 ring-2 ring-emerald-400/50'
-                : darkMode
-                ? 'bg-slate-800 text-emerald-400 hover:bg-slate-700 border border-slate-700'
-                : 'bg-emerald-50 text-[#2E8B57] border border-emerald-200 hover:bg-emerald-100'
-            }`}
-          >
-            <LayoutDashboard className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-            <span className="hidden sm:inline">Dashboard</span>
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          </button>
-
-          {/* Quick Products Catalog Button */}
-          <button
-            onClick={() => onViewChange('products')}
-            className={`hidden md:flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-black whitespace-nowrap transition-all flex-shrink-0 ${
-              currentView === 'products'
-                ? 'bg-[#0A4D9B] text-white shadow-md'
-                : darkMode
-                ? 'bg-slate-800 text-amber-400 hover:bg-slate-700 border border-slate-700'
-                : 'bg-amber-50 text-[#0A4D9B] border border-amber-200/80 hover:bg-amber-100'
-            }`}
-          >
-            <Package className="w-4 h-4 text-amber-500 flex-shrink-0" />
-            <span>Products</span>
-          </button>
-
+        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
           {/* Theme Toggle Button */}
           <button
             onClick={() => setDarkMode(!darkMode)}
@@ -189,16 +154,16 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
           {/* Get Free Quote CTA */}
           <button
             onClick={onOpenQuoteModal}
-            className="bg-[#0A4D9B] hover:bg-[#083a75] text-white px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-blue-900/20 transition-all hover:scale-[1.02] active:scale-95 whitespace-nowrap flex items-center gap-1.5 flex-shrink-0"
+            className="bg-[#6D28D9] hover:bg-[#5B21B6] text-white px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-purple-900/30 transition-all hover:scale-[1.02] active:scale-95 whitespace-nowrap flex items-center gap-1.5 flex-shrink-0"
           >
             <span>Get Free Quote</span>
             <ChevronRight className="w-4 h-4 text-[#FFC107] flex-shrink-0" />
           </button>
 
-          {/* Mobile/Tablet Hamburger Toggle (Shown on screens smaller than XL) */}
+          {/* Mobile/Tablet Hamburger Toggle (Shown on screens smaller than LG) */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`xl:hidden p-2 sm:p-2.5 rounded-xl transition-colors flex-shrink-0 border ${
+            className={`lg:hidden p-2 sm:p-2.5 rounded-xl transition-colors flex-shrink-0 border ${
               darkMode ? 'bg-slate-800 border-slate-700 text-white hover:bg-slate-700' : 'bg-slate-100 border-slate-200 text-slate-800 hover:bg-slate-200'
             }`}
             aria-label="Toggle Navigation Menu"
@@ -210,7 +175,7 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
 
       {/* Mobile Drawer Navigation Menu */}
       {mobileMenuOpen && (
-        <div className={`xl:hidden border-b shadow-2xl transition-all animate-fadeIn max-h-[85vh] overflow-y-auto ${
+        <div className={`lg:hidden border-b shadow-2xl transition-all animate-fadeIn max-h-[85vh] overflow-y-auto ${
           darkMode ? 'bg-slate-900 border-slate-800 text-white' : 'bg-white border-slate-200 text-slate-900'
         }`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 space-y-4">
@@ -229,13 +194,13 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
                     onClick={() => handleNavClick(link.view, link.href)}
                     className={`px-3 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2.5 transition-colors text-left ${
                       isSelectedView
-                        ? 'bg-[#0A4D9B] text-white shadow-md'
+                        ? 'bg-[#6D28D9] text-white shadow-md'
                         : darkMode
                         ? 'bg-slate-800/80 hover:bg-slate-800 text-slate-200'
                         : 'bg-slate-100 hover:bg-slate-200 text-slate-800'
                     }`}
                   >
-                    <IconComponent className={`w-4 h-4 flex-shrink-0 ${isSelectedView ? 'text-[#FFC107]' : 'text-[#0A4D9B]'}`} />
+                    <IconComponent className={`w-4 h-4 flex-shrink-0 ${isSelectedView ? 'text-[#FFC107]' : 'text-[#6D28D9]'}`} />
                     <span className="truncate">{link.label}</span>
                   </button>
                 );
@@ -248,7 +213,7 @@ export const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode, onOpenQuo
                   setMobileMenuOpen(false);
                   onOpenQuoteModal();
                 }}
-                className="w-full bg-[#0A4D9B] hover:bg-[#083a75] text-white py-3 px-4 rounded-xl font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg"
+                className="w-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white py-3 px-4 rounded-xl font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg"
               >
                 <span>Get Free Solar Quote</span>
                 <ChevronRight className="w-4 h-4 text-[#FFC107]" />

@@ -79,7 +79,7 @@ const MONTHLY_YIELD_DATA = [
 const ENERGY_PIE_DATA = [
   { name: 'Direct Solar Use', value: 62, color: '#FFC107' },
   { name: 'Battery Discharge', value: 26, color: '#2E8B57' },
-  { name: 'Grid Import', value: 12, color: '#0A4D9B' },
+  { name: 'Grid Import', value: 12, color: '#6D28D9' },
 ];
 
 export const Dashboard: React.FC<DashboardProps> = ({ darkMode, onNavigateToQuote }) => {
@@ -109,7 +109,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ darkMode, onNavigateToQuot
       }`}>
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 bg-[#0A4D9B]/10 text-[#0A4D9B] dark:bg-blue-500/10 dark:text-blue-400 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 bg-[#6D28D9]/10 text-[#6D28D9] dark:bg-purple-500/10 dark:text-purple-400 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider">
               <Activity className="w-3.5 h-3.5 text-emerald-500 animate-pulse" />
               <span>Live System Telemetry • Silicon Valley Residence #1042</span>
             </div>
@@ -132,7 +132,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ darkMode, onNavigateToQuot
                   onClick={() => setTimeRange(range)}
                   className={`px-3 py-1.5 rounded-lg capitalize transition-all ${
                     timeRange === range
-                      ? 'bg-[#0A4D9B] text-white shadow-sm'
+                      ? 'bg-[#6D28D9] text-white shadow-sm'
                       : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
                   }`}
                 >
@@ -186,12 +186,12 @@ export const Dashboard: React.FC<DashboardProps> = ({ darkMode, onNavigateToQuot
         }`}>
           <div className="flex items-center justify-between">
             <span className="text-xs font-extrabold uppercase tracking-wider text-slate-400">Home Power Load</span>
-            <div className="p-2.5 rounded-2xl bg-blue-500/10 text-[#0A4D9B] dark:text-blue-400">
+            <div className="p-2.5 rounded-2xl bg-purple-500/10 text-[#6D28D9] dark:text-purple-400">
               <Zap className="w-5 h-5" />
             </div>
           </div>
           <div className="mt-3">
-            <div className="text-3xl font-black text-[#0A4D9B] dark:text-blue-400 flex items-baseline gap-1">
+            <div className="text-3xl font-black text-[#6D28D9] dark:text-purple-400 flex items-baseline gap-1">
               3.5 <span className="text-base font-bold text-slate-400">kW</span>
             </div>
             <div className="mt-1 flex items-center gap-1.5 text-xs text-slate-500 font-medium">
@@ -265,7 +265,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ darkMode, onNavigateToQuot
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h3 className="text-lg font-bold flex items-center gap-2">
-                <Activity className="w-5 h-5 text-[#0A4D9B]" />
+                <Activity className="w-5 h-5 text-[#6D28D9] dark:text-purple-400" />
                 24-Hour Solar Production vs. Home Consumption
               </h3>
               <p className="text-xs text-slate-500">
@@ -278,7 +278,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ darkMode, onNavigateToQuot
                 Solar PV Output
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-[#0A4D9B]"></span>
+                <span className="w-3 h-3 rounded-full bg-[#6D28D9]"></span>
                 Home Usage
               </span>
             </div>
@@ -294,8 +294,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ darkMode, onNavigateToQuot
                     <stop offset="95%" stopColor="#FFC107" stopOpacity={0.0}/>
                   </linearGradient>
                   <linearGradient id="homeGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#0A4D9B" stopOpacity={0.6}/>
-                    <stop offset="95%" stopColor="#0A4D9B" stopOpacity={0.0}/>
+                    <stop offset="5%" stopColor="#6D28D9" stopOpacity={0.6}/>
+                    <stop offset="95%" stopColor="#6D28D9" stopOpacity={0.0}/>
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke={darkMode ? '#334155' : '#e2e8f0'} />
@@ -312,7 +312,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ darkMode, onNavigateToQuot
                   }}
                 />
                 <Area type="monotone" dataKey="solar" name="Solar Generation (kW)" stroke="#FFC107" strokeWidth={3} fillOpacity={1} fill="url(#solarGrad)" />
-                <Area type="monotone" dataKey="consumption" name="Home Usage (kW)" stroke="#0A4D9B" strokeWidth={2.5} fillOpacity={1} fill="url(#homeGrad)" />
+                <Area type="monotone" dataKey="consumption" name="Home Usage (kW)" stroke="#6D28D9" strokeWidth={2.5} fillOpacity={1} fill="url(#homeGrad)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -439,7 +439,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ darkMode, onNavigateToQuot
                   }}
                 />
                 <Bar dataKey="actual" name="Actual Yield (kWh)" fill="#2E8B57" radius={[6, 6, 0, 0]} />
-                <Bar dataKey="target" name="Estimated Baseline" fill="#0A4D9B" opacity={0.4} radius={[6, 6, 0, 0]} />
+                <Bar dataKey="target" name="Estimated Baseline" fill="#6D28D9" opacity={0.4} radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -451,7 +451,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ darkMode, onNavigateToQuot
         }`}>
           <div>
             <h3 className="text-base font-bold flex items-center gap-2">
-              <Sliders className="w-5 h-5 text-[#0A4D9B]" />
+              <Sliders className="w-5 h-5 text-[#6D28D9] dark:text-purple-400" />
               Smart Load Automation
             </h3>
             <p className="text-xs text-slate-500 mt-1">

@@ -12,7 +12,7 @@ export const Process: React.FC<ProcessProps> = ({ darkMode, onOpenQuoteModal }) 
       number: '01',
       title: 'Free Consultation',
       desc: 'We review your 12-month electricity bills and calculate expected solar savings with zero financial commitment.',
-      icon: <PhoneCall className="w-5 h-5 text-[#0A4D9B]" />,
+      icon: <PhoneCall className="w-5 h-5 text-[#6D28D9]" />,
       detail: 'Phone or video call with energy advisor',
     },
     {
@@ -33,7 +33,7 @@ export const Process: React.FC<ProcessProps> = ({ darkMode, onOpenQuoteModal }) 
       number: '04',
       title: '48-Hour Installation',
       desc: 'Our licensed master electricians mount waterproof racking, wire inverters, and mount high-efficiency panels.',
-      icon: <Wrench className="w-5 h-5 text-[#0A4D9B]" />,
+      icon: <Wrench className="w-5 h-5 text-[#6D28D9]" />,
       detail: 'Rapid & clean execution',
     },
     {
@@ -82,7 +82,7 @@ export const Process: React.FC<ProcessProps> = ({ darkMode, onOpenQuoteModal }) 
                 <div className="w-10 h-10 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
                   {item.icon}
                 </div>
-                <span className="text-xs font-extrabold bg-[#0A4D9B] text-white px-3 py-1 rounded-full">
+                <span className="text-xs font-extrabold bg-[#6D28D9] text-white px-3 py-1 rounded-full">
                   STEP {item.number}
                 </span>
               </div>
@@ -111,7 +111,7 @@ export const Process: React.FC<ProcessProps> = ({ darkMode, onOpenQuoteModal }) 
         </div>
         <button
           onClick={onOpenQuoteModal}
-          className="bg-[#0A4D9B] hover:bg-[#083a75] text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm shadow-lg flex items-center gap-2"
+          className="bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm shadow-lg flex items-center gap-2 shadow-purple-900/20"
         >
           <span>Schedule Free Consultation</span>
           <ArrowRight className="w-4 h-4 text-[#FFC107]" />

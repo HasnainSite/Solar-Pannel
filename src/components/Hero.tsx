@@ -27,8 +27,8 @@ export const Hero: React.FC<HeroProps> = ({ darkMode, onOpenQuoteModal }) => {
         <div
           className={`md:col-span-8 rounded-3xl p-6 sm:p-10 lg:p-12 relative overflow-hidden flex flex-col justify-between shadow-xl border ${
             darkMode
-              ? 'bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border-slate-800 text-white'
-              : 'bg-gradient-to-br from-slate-900 via-[#0A4D9B] to-slate-900 border-slate-800 text-white'
+              ? 'bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 border-slate-800 text-white'
+              : 'bg-gradient-to-br from-slate-900 via-[#6D28D9] to-slate-900 border-slate-800 text-white'
           }`}
         >
           {/* Background image & gradient overlay */}
@@ -100,7 +100,7 @@ export const Hero: React.FC<HeroProps> = ({ darkMode, onOpenQuoteModal }) => {
         >
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0A4D9B]">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#6D28D9] dark:text-purple-400">
                 <Calculator className="w-4 h-4 text-[#FFC107]" />
                 <span>Instant ROI Preview</span>
               </div>
@@ -118,7 +118,7 @@ export const Hero: React.FC<HeroProps> = ({ darkMode, onOpenQuoteModal }) => {
             <div className={`p-4 rounded-2xl border space-y-3 ${darkMode ? 'bg-slate-800/80 border-slate-700' : 'bg-slate-50 border-slate-200'}`}>
               <div className="flex justify-between text-xs font-semibold">
                 <span className="text-slate-500">Avg Monthly Bill:</span>
-                <span className="text-[#0A4D9B] font-bold">$300 / mo</span>
+                <span className="text-[#6D28D9] dark:text-purple-400 font-bold">$300 / mo</span>
               </div>
               <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
                 <div className="h-full bg-gradient-to-r from-amber-400 to-emerald-500 w-3/4"></div>
@@ -138,7 +138,7 @@ export const Hero: React.FC<HeroProps> = ({ darkMode, onOpenQuoteModal }) => {
 
           <a
             href="#calculator"
-            className="mt-6 w-full py-3 bg-[#0A4D9B] hover:bg-[#083a75] text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all"
+            className="mt-6 w-full py-3 bg-[#6D28D9] hover:bg-[#5B21B6] text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-md shadow-purple-900/20"
           >
             <span>Custom Roof Savings Calculator</span>
             <ArrowUpRight className="w-4 h-4 text-amber-400" />
@@ -153,11 +153,11 @@ export const Hero: React.FC<HeroProps> = ({ darkMode, onOpenQuoteModal }) => {
               darkMode ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'
             }`}
           >
-            <div className="w-12 h-12 rounded-2xl bg-blue-500/10 text-[#0A4D9B] flex items-center justify-center flex-shrink-0 font-extrabold text-xl">
+            <div className="w-12 h-12 rounded-2xl bg-purple-500/10 text-[#6D28D9] dark:text-purple-400 flex items-center justify-center flex-shrink-0 font-extrabold text-xl">
               1k+
             </div>
             <div>
-              <div className="text-2xl font-black tracking-tight text-[#0A4D9B]">1,000+</div>
+              <div className="text-2xl font-black tracking-tight text-[#6D28D9] dark:text-purple-400">1,000+</div>
               <div className="text-xs font-medium text-slate-500">Happy Solar Clients</div>
             </div>
           </div>
